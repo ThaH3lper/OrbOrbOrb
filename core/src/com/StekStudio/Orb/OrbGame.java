@@ -37,6 +37,7 @@ public class OrbGame extends ApplicationAdapter {
 	
 	public static void setGameState(EGameStates state)
 	{
+		if(currentState != null) currentState.dispose();
 		switch (state) {
 		case GAME:
 			currentState = new GameScreen();

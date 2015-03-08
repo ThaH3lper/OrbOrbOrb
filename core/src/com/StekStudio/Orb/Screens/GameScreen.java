@@ -46,4 +46,8 @@ public class GameScreen implements IState{
 		polyBatch.end();
 	}
 
+	@Override
+	public void dispose() {
+	}
+
 }

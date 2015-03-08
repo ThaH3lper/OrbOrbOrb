@@ -7,4 +7,6 @@ public interface IState {
 	void update(float delta);
 	
 	void render(SpriteBatch batch);
+	
+	void dispose();
 }
