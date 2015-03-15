@@ -2,9 +2,9 @@ package com.StekStudio.Orb.android;
 
 import android.os.Bundle;
 
+import com.StekStudio.Orb.OrbGame;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.StekStudio.Orb.OrbGame;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

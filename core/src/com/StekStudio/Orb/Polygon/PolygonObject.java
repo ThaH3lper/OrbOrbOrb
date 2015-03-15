@@ -2,6 +2,7 @@ package com.StekStudio.Orb.Polygon;
 
 import com.StekStudio.Orb.Utilities.ResManager;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonRegion;
 import com.badlogic.gdx.graphics.g2d.PolygonSprite;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
@@ -38,12 +39,16 @@ public class PolygonObject {
 				triangles[temp + 2] = (short) (i-2 + 2);
 			}
 		}
-		PolygonRegion polyReg = new PolygonRegion(new TextureRegion(ResManager.dot), vertices, triangles);
+		PolygonRegion polyReg = new PolygonRegion(new TextureRegion(ResManager.manager.get("General/dot.png", Texture.class)), vertices, triangles);
 		
 		poly = new PolygonSprite(polyReg);
 	    poly.setPosition(position.x, position.y);
 	    poly.setColor(color);
 
+	}
+	public void update(float delta)
+	{
+		
 	}
 	
 	public void render(PolygonSpriteBatch polyBatch){

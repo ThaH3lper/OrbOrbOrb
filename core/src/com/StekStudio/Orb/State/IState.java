@@ -1,12 +1,19 @@
 package com.StekStudio.Orb.State;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public interface IState {
 
 	void update(float delta);
 	
-	void render(SpriteBatch batch);
+	void render();
 	
 	void dispose();
+	
+	void animateOut(float delta);
+	
+	void animationIn(float delta);
+	
+	boolean isAnimationDone();
+	
+	void resetZoomAndOpacity();
 }

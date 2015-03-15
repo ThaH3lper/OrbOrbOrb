@@ -1,53 +1,41 @@
 package com.StekStudio.Orb.Screens;
 
-import com.StekStudio.Orb.Polygon.PolygonObject;
-import com.StekStudio.Orb.State.IState;
-import com.StekStudio.Orb.Utilities.ResManager;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.StekStudio.Orb.State.StandardScreen;
+import com.StekStudio.Orb.World.World;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 
-public class GameScreen implements IState{
+public class GameScreen extends StandardScreen{
 	
-	PolygonObject pol;
 	PolygonSpriteBatch polyBatch;
-	
-	OrthographicCamera camera;
+	World world;
 	
 	public GameScreen(){
-		camera = new OrthographicCamera(ResManager.virtualWidth, ResManager.virtualNewHeight);
-		camera.update();
-		
-		System.out.println(ResManager.virtualWidth + " " + ResManager.virtualNewHeight);
-		
-	    Vector2[] points = new Vector2[5];
-	    points[0] = new Vector2(-50, -50);
-	    points[1] = new Vector2(50, -50);
-	    points[2] = new Vector2(0, 0);
-	    points[3] = new Vector2(100, 100);
-	    points[4] = new Vector2(-70, 160);
-	    pol = new PolygonObject(new Vector2(0, 0), Color.GREEN, points);
-	    
+	    world = new World();
 	    polyBatch = new PolygonSpriteBatch();
 	}
 	
 	@Override
 	public void update(float delta) {
-
+		world.update(delta);
 	}
 
 	@Override
-	public void render(SpriteBatch batch) {
-		polyBatch.begin();
+	public void render() {
+		batch.setProjectionMatrix(camera.combined);
 		polyBatch.setProjectionMatrix(camera.combined);
-		pol.render(polyBatch);
+		
+		batch.begin();
+		batch.setColor(1, 1, 1, opacity);
+		polyBatch.begin();
+		world.render(batch, polyBatch);
+		
 		polyBatch.end();
+		batch.end();
 	}
 
 	@Override
 	public void dispose() {
+		polyBatch.dispose();
+		batch.dispose();
 	}
-
 }
