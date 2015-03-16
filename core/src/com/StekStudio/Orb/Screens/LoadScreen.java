@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class LoadScreen extends StandardScreen{
 
-	private final float time = 5f, logoSize = 180;
+	private final float time = 4f, logoSize = 180;
 	private float currentTime = 0;
 	private boolean done = false;
 	

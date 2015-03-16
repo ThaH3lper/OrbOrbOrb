@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 
 public class ResManager {
 	
-	public static final int virtualWidth = 240, virtualHeight = 320;
+	public static final int virtualWidth = 240, virtualHeight = 320, orbMargin = 20;
 	public static int virtualNewHeight, paddingHeight;
 	public static AssetManager manager;
 	

@@ -24,9 +24,9 @@ public class PolygonObject {
 		for(int i = 0; i < points.length; i++)
 		{
 			if(i + 1 >= points.length)
-				lines[i] = new Line(points[i], points[0]);
+				lines[i] = new Line(new Vector2(points[i].x + position.x, points[i].y + position.y), new Vector2(points[0].x + position.x, points[0].y + position.y));
 			else
-				lines[i] = new Line(points[i], points[i + 1]);
+				lines[i] = new Line(new Vector2(points[i].x + position.x, points[i].y + position.y), new Vector2(points[i + 1].x + position.x, points[i + 1].y + position.y));
 			
 			vertices[i * 2] = points[i].x;
 			vertices[(i * 2) + 1] = points[i].y;
@@ -57,5 +57,9 @@ public class PolygonObject {
 	
 	public void setColor(Color color){
 		poly.setColor(color);
+	}
+	
+	public Line[] getLines(){
+		return lines;
 	}
 }

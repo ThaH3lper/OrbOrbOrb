@@ -3,6 +3,8 @@ package com.StekStudio.Orb.State;
 import com.StekStudio.Orb.Utilities.ResManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 public abstract class StandardScreen implements IState{
 
@@ -42,6 +44,7 @@ public abstract class StandardScreen implements IState{
 
 	@Override
 	public void animationIn(float delta) {
+		opacity += 1.2f * delta;
 		currentTime += delta;
 		camera.zoom -= delta * 1.2f;
 		camera.update();
@@ -55,6 +58,16 @@ public abstract class StandardScreen implements IState{
 	@Override
 	public boolean isAnimationDone() {
 		return animationDone;
+	}
+	
+	public Vector2 screenToWorld(Vector2 v){
+		Vector3 v3 = camera.unproject(new Vector3(v, 0));
+		return new Vector2(v3.x, v3.y);
+	}
+	
+	public Vector2 worldToScreen(Vector2 v){
+		Vector3 v3 = camera.project(new Vector3(v, 0));
+		return new Vector2(v3.x, v3.y);
 	}
 
 }
