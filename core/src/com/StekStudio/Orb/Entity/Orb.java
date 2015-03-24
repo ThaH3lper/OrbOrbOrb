@@ -9,7 +9,7 @@ public class Orb {
 	Vector2 position;
 	final float orbRadius = 16, recSize = 7;
 	float rotation;
-	float speed = -70;
+	float speed = -170;
 	Color color;
 	
 	public Orb()
