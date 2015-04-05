@@ -57,7 +57,6 @@ public class World {
 			for (Line line : po.getLines()) {
 				if(Intersector.distanceSegmentPoint(line.getStart(),line.getEnd(), orb.getPosition()) <= 7)
 				{
-					System.out.println(Intersector.distanceSegmentPoint(line.getStart(),line.getEnd(), orb.getPosition()));
 					orb.setColor(Color.YELLOW);
 					return true;
 				}
